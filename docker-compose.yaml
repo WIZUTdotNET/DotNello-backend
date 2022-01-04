@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  database:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'DotNello_Database'
+      MYSQL_USER: '4dm1n15tr4T0r'
+      MYSQL_PASSWORD: '!HaSLo-TeSTow3@'
+      MYSQL_ROOT_PASSWORD: '!HaSLo-TeSTow3@AdM1n'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - './.mysql/Database:/var/lib/mysql'
