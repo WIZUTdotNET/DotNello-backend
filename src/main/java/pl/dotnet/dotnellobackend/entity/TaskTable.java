@@ -1,9 +1,6 @@
 package pl.dotnet.dotnellobackend.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,18 +17,14 @@ public class TaskTable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @NotNull
-    private User taskTableOwner;
+    @OneToMany
+    private List<UserTable> users;
 
-    @ManyToMany
-    private List<User> taskTableMembers;
-
-    void addTaskTableMember(User user){
-        taskTableMembers.add(user);
+    public void addTable(UserTable user) {
+        users.add(user);
     }
 
-    void removeTaskTableMember(User user) {
-        taskTableMembers.remove(user);
+    public void removeTable(UserTable user) {
+        users.remove(user);
     }
 }

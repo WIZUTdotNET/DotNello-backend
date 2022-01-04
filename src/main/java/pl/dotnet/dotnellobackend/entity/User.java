@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @AllArgsConstructor
@@ -27,24 +28,13 @@ public class User {
     private String password;
 
     @OneToMany
-    private List<TaskTable> ownedTaskTables;
+    private List<UserTable> tables;
 
-    @ManyToMany
-    private List<TaskTable> memberedTaskTables;
-
-    public void addOwnedTaskTable(TaskTable table) {
-        ownedTaskTables.add(table);
+    public void addTable(UserTable table) {
+        tables.add(table);
     }
 
-    public void removeOwnedTaskTable(TaskTable table) {
-        ownedTaskTables.remove(table);
-    }
-
-    public void addMemberedTaskTable(TaskTable table) {
-        memberedTaskTables.add(table);
-    }
-
-    public void removeMemberedTaskTable(TaskTable table) {
-        memberedTaskTables.remove(table);
+    public void removeTable(TaskTable table) {
+        tables.remove(table);
     }
 }
