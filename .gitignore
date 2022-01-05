@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### MySQL ###
+.mysql/Database/#innodb_temp/
+.mysql/Database/mysql/
+.mysql/Database/performance_schema/
+.mysql/Database/sys/
+.mysql/Database/*
+!.mysql/Database/DotNello_Database/
